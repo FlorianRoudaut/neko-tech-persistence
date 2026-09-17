@@ -1,6 +1,8 @@
-use crate::Key;
+use crate::{Key, PersistenceError};
 
-pub trait Persisted {
+pub trait Persisted: Sized {
     fn key(&self) -> &Key;
     fn persisted_type(&self) -> &str;
+    fn to_proto_bytes(items: &[Self]) -> Vec<u8>;
+    fn from_proto_bytes(bytes: &[u8]) -> Result<Vec<Self>, PersistenceError>;
 }
