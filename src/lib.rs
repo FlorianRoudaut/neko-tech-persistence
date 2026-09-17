@@ -5,3 +5,4 @@ mod repository;
 pub use key::Key;
 pub use persisted::Persisted;
 pub use repository::{Repository, PersistenceError};
+pub use uuid::Uuid;
